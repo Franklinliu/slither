@@ -263,7 +263,7 @@ def compute_dependency_function(function):
     function.context[KEY_NON_SSA] = convert_to_non_ssa(function.context[KEY_SSA])
     function.context[KEY_NON_SSA_UNPROTECTED] = convert_to_non_ssa(function.context[KEY_SSA_UNPROTECTED])
 
-def convert_variable_to_non_ssa(v):
+def convert_variable_to_non_ssa(v): ## v refer to Contract State Variable but not the local variable of function
     if isinstance(v, (LocalIRVariable, StateIRVariable, TemporaryVariableSSA, ReferenceVariableSSA, TupleVariableSSA)):
         return v.non_ssa_version
     assert isinstance(v, (Constant, SolidityVariable, Contract, Enum, SolidityFunction, Structure, Function, Type))
