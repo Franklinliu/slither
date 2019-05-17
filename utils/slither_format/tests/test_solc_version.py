@@ -15,21 +15,27 @@ class TestSolcVersion(unittest.TestCase):
     def setUp(self):
         outFD1 = open(self.testFilePath1+".out","w")
         errFD1 = open(self.testFilePath1+".err","w")
-        p1 = subprocess.Popen(['python3', '-m', 'slither_format','--verbose-test','--detect','solc-version',self.testFilePath1], stdout=outFD1,stderr=errFD1)
+        my_env = os.environ.copy()
+        my_env["SOLC_VERSION"] = "0.4.24"
+        p1 = subprocess.Popen(['python3', '-m', 'slither_format','--verbose-test','--detect','solc-version',self.testFilePath1], stdout=outFD1,stderr=errFD1, env=my_env)
         p1.wait()
         outFD1.close()
         errFD1.close()
 
         outFD2 = open(self.testFilePath2+".out","w")
         errFD2 = open(self.testFilePath2+".err","w")
-        p2 = subprocess.Popen(['python3', '-m', 'slither_format','--verbose-test','--detect','solc-version',self.testFilePath2], stdout=outFD2,stderr=errFD2)
+        my_env = os.environ.copy()
+        my_env["SOLC_VERSION"] = "0.4.24"
+        p2 = subprocess.Popen(['python3', '-m', 'slither_format','--verbose-test','--detect','solc-version',self.testFilePath2], stdout=outFD2,stderr=errFD2, env=my_env)
         p2.wait()
         outFD2.close()
         errFD2.close()
 
         outFD3 = open(self.testFilePath3+".out","w")
         errFD3 = open(self.testFilePath3+".err","w")
-        p3 = subprocess.Popen(['python3', '-m', 'slither_format','--verbose-test','--detect','solc-version',self.testFilePath3], stdout=outFD3,stderr=errFD3)
+        my_env = os.environ.copy()
+        my_env["SOLC_VERSION"] = "0.4.24"
+        p3 = subprocess.Popen(['python3', '-m', 'slither_format','--verbose-test','--detect','solc-version',self.testFilePath3], stdout=outFD3,stderr=errFD3, env=my_env)
         p3.wait()
         outFD3.close()
         errFD3.close()
