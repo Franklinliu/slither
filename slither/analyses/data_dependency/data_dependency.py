@@ -187,7 +187,7 @@ def compute_dependency_contract(contract, slither):
                            KEY_SSA_UNPROTECTED,
                            KEY_NON_SSA_UNPROTECTED)
 
-        if function.visibility in ['public', 'external']:
+        if function.visibility in ['public', 'external']:  ## KEY_INPUT<- parameter list of function
             [slither.context[KEY_INPUT].add(p) for p in function.parameters]
             [slither.context[KEY_INPUT_SSA].add(p) for p in function.parameters_ssa]
 
